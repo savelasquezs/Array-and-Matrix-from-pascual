@@ -31,38 +31,42 @@ namespace ExercieDataStructures
                 ");
 
 
-
+            // *****variables principales****
 
             // la columna que irá cambiando de valor para mostrarse
             int iterationColumn = matriz.GetLength(1) - 1,
 
             // la fila que irá cambiando de valor para mostrarse
-                IterationRow = matriz.GetLength(0) - 1,
+            IterationRow = matriz.GetLength(0) - 1,
 
-                // la fila actual, es el indice mas bajo de la fila a la cual hemos llegado
-                currentRow = matriz.GetLength(0) - 1,
+            // *****variables auxiliares****
 
-                //Es el maximo indice de la columna al cual podemos llegar teniendo en cuenta la posición actual
-                maxrow = matriz.GetLength(0) - 1,
+            //  fila centinela, que se actualiza cada vez que lleguemos al final de una diagonal
+            currentRow = matriz.GetLength(0) - 1,
 
-                //Es el maximo indice de la fila al cual podemos llegar teniendo en cuenta la posición actual
-                maxcol = matriz.GetLength(1) - 1;
+            //maximo indice de la fila en la diagonal actual
+            maxrow = matriz.GetLength(0) - 1,
+
+            //maximo indice de la columna en la diagonal actual
+            maxcol = matriz.GetLength(1) - 1;
 
             for (int i = matriz.Length; i > 0; i--)
             {
                 Console.WriteLine(matriz[IterationRow, iterationColumn]);
-                // Si la fila por la cual vamos, es la ultima fila de el array
-                // o es la fila mas baja a la cual puedo acceder, empiezo una nueva diagonal
+
 
                 if (IterationRow == maxrow)
+                // esta igualdad se cumple cada vez que llegamos al final de una diagonal
                 {
-                    // cada vez que termino una diagonal, subo una fila de la fila mas alta que habia alcanzado.
-
+                    // actualizamos el valor de la fila donde inicia nuestra proxima diagonal
                     currentRow--;
-                    //Cuando currentRow ==-1 por primera vez significa que pasamos la diagonal principal
-                    //Cuando pasamos de esa diagonal, debemos actualizar nuestros limites porque los datos
-                    // a los cuales tenemos acceso son mas limitados
+
                     if (currentRow == -1)
+                    //como vamos subiendo de la fila 2 a la fila 0, no hay filas mas arriba de ahí, por lo tanto correjimos.
+                    // currentRow == -1  cuando lo pasamos por primera vez, indica que pasamos la diagonal principal
+                    // y que ahora vamos a recorrer la parte superior que cada vez tiene menos elementos
+                    // y que la ultima fila de la diagnola es menor de la ultima fila de la matriz, por lo tanto , actualizamos 
+                    // maxcol y maxrow para que no se salga de los limites de la matriz
                     {
 
                         currentRow = 0;
@@ -96,7 +100,7 @@ namespace ExercieDataStructures
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     matrixStr += matrix[i, j] + "-";
-                    if(j==matrix.GetLength(1)-1)
+                    if (j == matrix.GetLength(1) - 1)
                     {
                         matrixStr += "\n";
                     }
