@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace ExercieDataStructures
 {
 
@@ -20,6 +22,15 @@ namespace ExercieDataStructures
             { 4, 5, 6 },
             { 7, 8, 9 }
             };
+
+            string matrixToString = MatrixToString(matriz);
+
+            Console.WriteLine(@$"Recuerda que esta es nuestra matriz:
+
+              {matrixToString}
+                ");
+
+
 
 
             // la columna que irá cambiando de valor para mostrarse
@@ -75,6 +86,24 @@ namespace ExercieDataStructures
                 }
 
             }
+
+        }
+        static string MatrixToString(int[,] matrix)
+        {
+            string matrixStr = "\n";
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrixStr += matrix[i, j] + "-";
+                    if(j==matrix.GetLength(1)-1)
+                    {
+                        matrixStr += "\n";
+                    }
+
+                }
+            }
+            return matrixStr;
 
         }
 

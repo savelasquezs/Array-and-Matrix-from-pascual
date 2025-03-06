@@ -13,7 +13,6 @@ namespace ExercieDataStructures
             empezando desde el indice indicado por usted y en el orden que usted elija que puede ser 
             de derecha a izquierda o izquierda a derecha
             
-
             ");
 
             Console.WriteLine("Ingrese el indice de el elemento desde el cual desea empezar el recorrido: ");
@@ -32,58 +31,36 @@ namespace ExercieDataStructures
             int[] options = [1, 2];
 
             int option = Utils.validateNumericalOption(options);
-            if (option == 1)
-            {
-                System.Console.WriteLine($@"
+            string optionDescription=option== 1 ? "de izquierda a derecha" : "de derecha a izquierda";
+
+            int index = initialIndex;
+            System.Console.WriteLine($@"
                 La opción ingresada es {option}
-                Imprimiremos los numeros de izquierda a derecha
+                Imprimiremos los numeros {optionDescription}
                 recuerda que el array original es:
-                {numbersStr}
-
-                ");
-                for (int i = initialIndex; i < numbers.Length; i++)
-                {
-                    Console.WriteLine(numbers[i]);
-
-
-                    if (i == (numbers.Length - 1))
-                    {
-                        for (int j = 0; j < initialIndex; j++)
-                        {
-                            Console.WriteLine(numbers[j]);
-                        }
-                    }
-                }
-            }
-            else
+                {numbersStr}");
+            do
             {
-                System.Console.WriteLine($@"
-                La opción ingresada es {option}
-                Imprimiremos los numeros de derecha a izquierda
-                Recuerda que el array original es:
-                {numbersStr}
-
-                ");
-
-                for (int i = initialIndex; i >= 0; i--)
+                Console.WriteLine(numbers[index]);
+                if (option == 1)
                 {
-                    Console.WriteLine(numbers[i]);
-                    if (i == 0)
+                    index++;
+                    if (index == numbers.Length)
                     {
-                        for (int j = 7; j > initialIndex; j--)
-                        {
-                            Console.WriteLine(numbers[j]);
-                        }
+                        index = 0;
+                    }
+                }
+                else
+                {
+                    index--;
+                    if (index == -1)
+                    {
+                        index = numbers.Length - 1;
                     }
                 }
 
-            }
-
-
-
+            } while (index != initialIndex);
         }
-
-
     }
 }
 

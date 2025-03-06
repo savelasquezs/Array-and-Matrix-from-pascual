@@ -45,6 +45,7 @@ namespace ExercieDataStructures
             Ingrese:
             1. Impresión de array en orden definido por el usuario
             2. Impresión de elementos de matriz en diagonal inversa");
+
             int[] menuOptions = [1, 2];
             int option = Utils.validateNumericalOption(menuOptions);
             if (option == 1)
