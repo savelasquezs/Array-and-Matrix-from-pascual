@@ -16,8 +16,8 @@ namespace ExercieDataStructures
             Bienvenido a ejercicios de estructura de datos: arrays y matrices
             El equipo está conformado por:
              - Santiago Velásquez Serna //1038414022
-
-
+             - Juan Sebastián Villanueva Muriel / 1011591851
+             - Juan José Parra Giraldo // 1026132725
 
             ");
             ShowMainMenu();
