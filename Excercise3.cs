@@ -6,13 +6,15 @@ namespace ExercieDataStructures
     class Exercise3
     {
 
-        private static int[,] _matrix;
-        private static int _initialRowIndex;
-        private static int _initialColumnIndex;
-        private static int _currentRow, _currentColumn;
-        private static int _maxCol, _minCol, _maxRow, _minRow;
+        int[,] _matrix;
+        int _initialRowIndex,
+         _initialColumnIndex,
+         _currentRow, _currentColumn,
+         _maxCol, _minCol, _maxRow, _minRow;
 
-        public static void Solve()
+
+
+        public void Solve()
         {
             Utils.clearWindow();
             Console.WriteLine($@"
@@ -70,7 +72,7 @@ namespace ExercieDataStructures
             }
         }
 
-        private static string MatrixToString(int[,] matrix)
+        private string MatrixToString(int[,] matrix)
         {
             string matrixStr = "\n";
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -87,7 +89,7 @@ namespace ExercieDataStructures
             return matrixStr;
         }
 
-        private static void MoveLeft(int edgeIndex)
+        private void MoveLeft(int edgeIndex)
         {
             while (_currentColumn != edgeIndex)
             {
@@ -96,7 +98,7 @@ namespace ExercieDataStructures
             }
         }
 
-        private static void MoveDown(int edgeIndex)
+        private void MoveDown(int edgeIndex)
         {
             while (_currentRow != edgeIndex)
             {
@@ -105,7 +107,7 @@ namespace ExercieDataStructures
             }
         }
 
-        private static void MoveRight(int edgeIndex)
+        private void MoveRight(int edgeIndex)
         {
             while (_currentColumn != edgeIndex)
             {
@@ -114,7 +116,7 @@ namespace ExercieDataStructures
             }
         }
 
-        private static void MoveUp(int edgeIndex)
+        private void MoveUp(int edgeIndex)
         {
             while (_currentRow != edgeIndex)
             {
@@ -123,7 +125,7 @@ namespace ExercieDataStructures
             }
         }
 
-        private static void createMatrix(int n)
+        private void createMatrix(int n)
         {
 
             Random random = new Random();
