@@ -44,18 +44,24 @@ namespace ExercieDataStructures
             System.Console.WriteLine(@"
             Ingrese:
             1. Impresión de array en orden definido por el usuario
-            2. Impresión de elementos de matriz en diagonal inversa");
+            2. Impresión de elementos de matriz en diagonal inversa
+            3. Matriz en espiral");
 
-            int[] menuOptions = [1, 2];
+            int[] menuOptions = [1, 2, 3];
             int option = Utils.validateNumericalOption(menuOptions);
             if (option == 1)
             {
                 Exercise1.Solve();
                 AskToContinue();
             }
-            else
+            else if (option == 2)
             {
                 Exercise2.Solve();
+                AskToContinue();
+            }
+            else
+            {
+                Exercise3.Solve();
                 AskToContinue();
             }
         }
