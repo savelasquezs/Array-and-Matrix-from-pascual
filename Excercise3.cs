@@ -5,18 +5,10 @@ namespace ExercieDataStructures
 {
     class Exercise3
     {
-        private static int[,] _matrix = {
-            { 1,  2,  3,  10, 11, 13,},
-            { 4,  5,  6,  12, 13, 13, },
-            { 7,  8,  9,  14, 15, 13,},
-            { 16, 17, 18, 19, 20, 13,},
-            { 21, 22, 23, 24, 25, 13,},
-            { 26, 27, 28, 29, 13, 13,},
 
-        };
-
-        private static int _initialRowIndex = _matrix.GetLength(0) / 2;
-        private static int _initialColumnIndex = _matrix.GetLength(1) / 2;
+        private static int[,] _matrix;
+        private static int _initialRowIndex;
+        private static int _initialColumnIndex;
         private static int _currentRow, _currentColumn;
         private static int _maxCol, _minCol, _maxRow, _minRow;
 
@@ -27,6 +19,22 @@ namespace ExercieDataStructures
             This program aims to traverse a matrix and print the data in a spiral manner
             Starting from the center towards the outside:
             ");
+
+            // Ask the user for the quantity of elements in the matrix
+            Console.Write("Enter the quantity of elements in the matrix (n*n): ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            // Create a random matrix with n*n elements
+            _matrix = new int[n, n];
+            createMatrix(n);
+
+            // Define the initial position in the matrix
+            _initialRowIndex = _matrix.GetLength(0) / 2;
+            _initialColumnIndex = _matrix.GetLength(1) / 2;
+
+            // Print the matrix
+            Console.WriteLine("Matrix:");
+            Console.WriteLine(MatrixToString(_matrix));
 
             _currentRow = _initialRowIndex;
             _currentColumn = _initialColumnIndex;
@@ -113,6 +121,20 @@ namespace ExercieDataStructures
                 _currentRow -= 1;
                 Console.WriteLine(_matrix[_currentRow, _currentColumn]);
             }
+        }
+
+        private static void createMatrix(int n)
+        {
+
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    _matrix[i, j] = random.Next(1, 101);
+                }
+            }
+
         }
     }
 }
